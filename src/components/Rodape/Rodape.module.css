@@ -1,0 +1,14 @@
+.rodape{
+    background-color: var(--preto-fundo);
+    
+    border-top: 0.2rem solid;
+    border-color: var(--primaria-leandro);
+    
+    text-align: center;
+}
+
+.rodape img{
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    height: 4rem;
+}
