@@ -1,0 +1,15 @@
+.container {
+    margin-top: .5em;
+    width: 282px;
+    background-color: var(--cinza);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid;
+    border-color: var(--primaria-leandro);
+}
+
+.capa {
+    width: 100%;
+}

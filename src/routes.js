@@ -1,4 +1,5 @@
 import Inicio from "pages/Inicio";
+import NovoVideo from "pages/NovoVideo";
 import PaginaPadrao from "pages/PaginaPadrao";
 
 
@@ -8,7 +9,10 @@ function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Inicio />} />
+        <Route path="/" element={<PaginaPadrao />}>
+          <Route index element={<Inicio />} />
+          <Route path="novo-video" element={<NovoVideo />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

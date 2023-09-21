@@ -1,0 +1,24 @@
+.container{
+    background-color: var(--preto-fundo);
+    padding: 2rem;
+    font-family: var(--fonte-padrao);
+}
+
+.texto{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.texto h2{
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--cinza-claro);
+}
+
+.tituloCategoria{
+    font-size: 35px;
+    font-weight: 300;
+    background-color: var(--cor-data-science);
+}
