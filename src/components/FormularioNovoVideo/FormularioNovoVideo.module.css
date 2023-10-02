@@ -1,0 +1,12 @@
+
+
+
+.botoes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.botoesVideos{
+    display: flex;
+    gap: 2rem;
+}
