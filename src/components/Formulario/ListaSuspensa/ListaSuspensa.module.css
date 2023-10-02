@@ -1,0 +1,12 @@
+.listaSuspensa select{
+    width: 100%;
+    background-color: var(--preto-claro);
+    color: var(--cinza-claro);
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.listaSuspensa:focus{
+    border-color: var(--primaria-leandro);
+}
