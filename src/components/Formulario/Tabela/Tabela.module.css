@@ -1,0 +1,27 @@
+.container{
+    padding: 2rem;
+    background-color: var(--preto-fundo);
+}
+
+.tabela {
+    color: var(--cinza-claro);
+    font-family: var(--fonte-padrao);
+    width: 100%;
+    border: 1.5px solid var(--primaria-leandro);
+}
+
+.tabela thead th{
+    font-size: 24px;
+    border: 1.5px solid var(--primaria-leandro);
+    padding: 0.5rem;
+}
+
+.tabela tbody{
+    border: 1.5px solid var(--primaria-leandro);
+}
+
+.tabela th{
+    border: 1px solid var(--preto);
+    padding: 0.3rem;
+    vertical-align: center;
+}
