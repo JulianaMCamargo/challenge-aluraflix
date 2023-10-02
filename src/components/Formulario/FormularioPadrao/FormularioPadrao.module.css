@@ -1,0 +1,9 @@
+.container{
+    background-color: var(--preto-fundo);
+    text-align: center;
+    padding: 7rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-family: var(--fonte-padrao)
+}
