@@ -1,0 +1,12 @@
+.textoArea{
+    background-color: var(--cinza-preto);
+    border: none;
+    color: var(--cinza-claro);
+    font-family: var(--fonte-padrao);
+    font-size: 18px;
+    padding: 1rem;
+}
+
+.textoArea:focus{
+    border: 2px solid var(--primaria-leandro);
+}
