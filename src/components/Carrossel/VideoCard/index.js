@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 import styles from './VideoCard.module.css';
-import capa from 'images/card-leandro-01.jpeg'
 
-function VideoCard() {
+function VideoCard({id, capa, descricao, link}) {
     return (
         <div className={styles.container}>
-            <Link className={styles.link} to='#'>
-                <img src={capa} alt='Treino de 20min' className={styles.capa} />
+            <Link className={styles.link} to={link} key={id}>
+                <img src={capa} alt={descricao} className={styles.capa} />
             </Link>
         </div>
     )
