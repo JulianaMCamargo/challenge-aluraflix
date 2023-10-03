@@ -1,6 +1,11 @@
 import styles from './Carrossel.module.css';
 import Sliders from '../Sliders';
 import TituloCategorias from 'components/TituloCategoria';
+import { useVideosContext } from 'context/Videos';
+
+function Carrossel({ titulo, cor, descricao }) {
+
+    const { videos } = useVideosContext();
 
     const videosFiltrados = videos.filter(video => video.categoria === titulo);
 
@@ -8,7 +13,6 @@ import TituloCategorias from 'components/TituloCategoria';
         return null;
     }
 
-function Carrossel() {
     return (
         <section className={styles.container}>
             <div className={styles.texto}>
@@ -19,6 +23,9 @@ function Carrossel() {
             <Sliders videosFiltrados={videosFiltrados} />
         </section>
     )
+
+
 }
+
 
 export default Carrossel;
