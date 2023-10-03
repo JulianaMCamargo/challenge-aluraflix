@@ -2,8 +2,8 @@
     width: 100%;
     height: 695px;
 
-    background-image: url(./banner-player.png);
-    background-size: contain;
+    background-image: url(./card-leandro-06.jpeg);
+    background-size: cover;
     background-repeat: no-repeat;
 
     font-family: var(--fonte-padrao);
@@ -12,7 +12,7 @@
 .conteudo {
     position: relative;
 
-    background-color: rgba(0, 0, 0, 0.59);
+    background-color: rgba(0, 0, 0, 0.75);
     width: 100%;
     height: 100%;
 
@@ -43,4 +43,9 @@
     color: var(--cinza-claro);
     line-height: 1.5rem;
     font-weight: 300;
+}
+
+.video img{
+    width: 600px;
+    border: 3px solid var(--primaria-leandro);
 }
