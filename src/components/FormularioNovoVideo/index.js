@@ -4,10 +4,11 @@ import ListaSuspensa from '../Formulario/ListaSuspensa';
 import styles from './FormularioNovoVideo.module.css';
 import AreaTexto from '../Formulario/AreaTexto';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Titulo from 'components/Formulario/Titulo';
 import FormularioPadrao from 'components/Formulario/FormularioPadrao';
 import { useVideosContext } from 'context/Videos';
+import { ValidacoesContext, useValidacoesContext } from 'context/Validacoes';
 
 function FormularioNovoVideo() {
 
@@ -18,10 +19,15 @@ function FormularioNovoVideo() {
     const [descricao, setDescricao] = useState('');
     const [senha, setSenha] = useState('');
 
-    const {adicionarVideo} = useVideosContext();
+    const [erros, setErros] = useState(
+        { titulo: { valido: true, texto: '' } },
+        { codigo: { valido: true, texto: '' } }
+    );
 
-    const aoSalvar = (evento) => {
-        evento.preventDefault()
+    const { adicionarVideo } = useVideosContext();
+    const { validarTitulo, validarCodigoSeguranca } = useValidacoesContext();
+
+    const aoSalvar = () => {
         const novoVideo = {
             titulo,
             linkVideo,
@@ -48,7 +54,16 @@ function FormularioNovoVideo() {
         setLinkImagem('')
         setCategoria('')
         setDescricao('')
-        setSenha('') 
+        setSenha('')
+    }
+
+    function possoSalvar() {
+        for (let campo in erros) {
+            if (!erros[campo].valido) {
+                return false;
+            }
+        }
+        return true;
     }
 
     return (
@@ -56,21 +71,30 @@ function FormularioNovoVideo() {
             <Titulo>Novo Vídeo</Titulo>
 
             <CampoTexto
+                type="text"
                 titulo='Título'
                 valor={titulo}
+                onBlur={valor => setErros(validarTitulo(valor))}
                 aoAlterado={valor => setTitulo(valor)}
+                error={!erros.titulo.valido}
+                helperText={erros.titulo.texto}
+                required
             />
 
             <CampoTexto
+                type="url"
                 titulo='Link do vídeo'
                 valor={linkVideo}
                 aoAlterado={valor => setLinkVideo(valor)}
+                required
             />
 
             <CampoTexto
+                type="url"
                 titulo='Link da imagem do vídeo'
                 valor={linkImagem}
                 aoAlterado={valor => setLinkImagem(valor)}
+                required
             />
 
             <ListaSuspensa
@@ -88,12 +112,21 @@ function FormularioNovoVideo() {
             <CampoTexto
                 titulo='Código de segurança'
                 valor={senha}
+                onBlur={valor => setErros(validarCodigoSeguranca(valor))}
                 aoAlterado={setSenha}
+                required
+                maxlength='8'
             />
 
             <div className={styles.botoes}>
                 <div className={styles.botoesVideos}>
-                    <Button variant="outlined" color='primary' onClick={aoSalvar}>
+                    <Button variant="outlined" color='primary'
+                        onClick={(event) => {
+                            event.preventDefault();
+                            if (possoSalvar) {
+                                aoSalvar();
+                            }
+                        }}>
                         Salvar
                     </Button>
 
@@ -103,7 +136,7 @@ function FormularioNovoVideo() {
                 </div>
 
                 <Link to="/nova-categoria">
-                    <Button  variant="outlined" color='primary'>Nova Categoria</Button>
+                    <Button variant="outlined" color='primary'>Nova Categoria</Button>
                 </Link>
             </div>
 
