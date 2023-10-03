@@ -1,4 +1,4 @@
-import FormularioNovoVideo from 'components/Formulario/FormularioNovoVideo';
+import FormularioNovoVideo from 'components/FormularioNovoVideo';
 
 function NovoVideo() {
     return(
