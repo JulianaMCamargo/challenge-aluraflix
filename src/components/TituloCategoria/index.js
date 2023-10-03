@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
 import styles from './TituloCategoria.module.css';
 
-function TituloCategorias({ children, cor, tamanho }) {
+function TituloCategorias({ children, corDeFundo, tamanho }) {
+
     const estiloCategoria = {
-        backgroundColor: cor,
+        backgroundColor: corDeFundo,
         fontSize: tamanho,
     };
 
