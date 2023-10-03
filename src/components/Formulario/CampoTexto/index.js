@@ -1,25 +1,57 @@
 import { TextField } from "@mui/material";
+import styles from './CampoTexto.module.css'
 
-function CampoTexto({ titulo }) {
+function CampoTexto({ titulo, valor, aoAlterado, type }) {
+    const aoDigitado = (evento) => {
+        aoAlterado(evento.target.value);
+    }
 
     const customStyles = {
-        backgroundColor: 'var(--preto-claro)', // Cor de preenchimento personalizada
+        backgroundColor: 'var(--cinza-preto)', // Cor de preenchimento personalizada
+        color: 'var(--cinza-claro)',
+
         '& .MuiInputLabel-root': {
-            color: 'var(--primaria-leandro)', // Cor do texto quando em foco (onBlur)
+            color: 'var(--cinza-claro)', // Cor do texto quando em foco (onBlur)
             borderColor: 'var(--primaria-leandro)',
         },
         '& .MuiInputLabel-outlined': {
-            color: 'var(--primaria-leandro)', // Cor do texto quando não em foco (offBlur)
+            color: 'var(--cinza-claro)', // Cor do texto quando não em foco (offBlur)
+            borderColor: 'var(--primaria-leandro)',
         },
+        '& .MuiInputLabel-filled': {
+            color: 'var(--cinza-claro)', // Cor do texto quando não em foco (offBlur)
+            borderColor: 'var(--primaria-leandro)',
+        }
     };
 
     return (
-        <TextField
+        <TextField className={StyleSheet.container}
             id="filled-basic"
             label={titulo}
-            ariant="filled"
+            value={valor}
+            onChange={aoDigitado}
+            variant="filled"
             fullWidth
-            sx={customStyles}
+            required
+            type={type}
+            InputProps={{
+                sx: {
+                    color: 'var(--cinza-claro)',
+                    backgroundColor: 'var(--preto-claro)',
+                    borderColor: 'var(--primaria-leandro)',
+                }
+            }} // Defina a cor do texto ao digitar
+            InputLabelProps={{
+                sx: {
+                    color: 'var(--cinza-claro)', // Cor do texto quando em foco (onBlur)
+                    borderColor: 'var(--primaria-leandro)',
+                },
+            }}
+            sx={{
+                "& .MuiOutlinedInput-notchedOutline": {
+                  borderColor: 'var(--primaria-leandro)', // Cor da borda durante a transição (em foco)
+                },
+              }}
         />
     )
 }
